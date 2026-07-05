@@ -40,7 +40,7 @@ public class GuiCartelera extends javax.swing.JFrame {
         jScrollPane1.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         lblLogo.setPreferredSize(new Dimension(100, 75));
         
-        
+        System.out.println("Mensaje Actucalizacion git");
         
         cbxUbicacion.addItem("Condado");
         cbxUbicacion.addItem("Quicentro");
