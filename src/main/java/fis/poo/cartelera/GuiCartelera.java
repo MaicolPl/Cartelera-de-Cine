@@ -40,14 +40,15 @@ public class GuiCartelera extends javax.swing.JFrame {
         jScrollPane1.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         lblLogo.setPreferredSize(new Dimension(100, 75));
         
-        System.out.println("Mensaje Actucalizacion git");
-        
         cbxUbicacion.addItem("Condado");
         cbxUbicacion.addItem("Quicentro");
         cbxUbicacion.addItem("CCI");
         
          peliculas.add(new Pelicula("Agua","Refrescante","/imagenes/Agua.jpeg","2h 40min"));
-          
+         peliculas.add(new Pelicula("SPIDER MAN UN NUEVO DIA","Tras el Día del Juicio Final, Peter"
+                 + " Parker intenta centrarse en la universidad y abandonar a Spider-Man. "
+                 + "Cuando una nueva amenaza pone en peligro a sus amigos, debe romper "
+                 + "su promesa y volver al traje.","/imagenes/Spider.jpg","2h 40min")); 
          peliculas.add(new Pelicula("Agua","Refrescante","/imagenes/Agua.jpeg","2h 40min"));
          peliculas.add(new Pelicula("Spider","Accion","/imagenes/Spider.jpg","2h 40min"));
          peliculas.add(new Pelicula("Agua","Refrescante","/imagenes/Agua.jpeg","2h 40min"));
@@ -59,6 +60,7 @@ public class GuiCartelera extends javax.swing.JFrame {
          
          
          Collections.shuffle(peliculas);
+         
 
         //colocarImagen(lblMovie1, peliculas.get(0).getPortada());
         
