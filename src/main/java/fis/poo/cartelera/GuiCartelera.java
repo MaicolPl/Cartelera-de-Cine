@@ -44,6 +44,8 @@ public class GuiCartelera extends javax.swing.JFrame {
         cbxUbicacion.addItem("Quicentro");
         cbxUbicacion.addItem("CCI");
         
+        System.out.println("Hola");
+        
          peliculas.add(new Pelicula("Agua","Refrescante","/imagenes/Agua.jpeg","2h 40min"));
          peliculas.add(new Pelicula("SPIDER MAN UN NUEVO DIA","Tras el Día del Juicio Final, Peter"
                  + " Parker intenta centrarse en la universidad y abandonar a Spider-Man. "
