@@ -46,19 +46,47 @@ public class GuiCartelera extends javax.swing.JFrame {
         
         System.out.println("Hola");
         
-         peliculas.add(new Pelicula("Agua","Refrescante","/imagenes/Agua.jpeg","2h 40min"));
+         peliculas.add(new Pelicula("MINIONS Y MONSTRUOS","Los Minions emprenden un viaje para encontrar"
+                 + " criaturas aterradoras para que aparezcan en su película de monstruos.\n" +
+                    "","/imagenes/MINION.jpg","1h 45min"));
          peliculas.add(new Pelicula("SPIDER MAN UN NUEVO DIA","Tras el Día del Juicio Final, Peter"
                  + " Parker intenta centrarse en la universidad y abandonar a Spider-Man. "
                  + "Cuando una nueva amenaza pone en peligro a sus amigos, debe romper "
                  + "su promesa y volver al traje.","/imagenes/Spider.jpg","2h 40min")); 
-         peliculas.add(new Pelicula("Agua","Refrescante","/imagenes/Agua.jpeg","2h 40min"));
-         peliculas.add(new Pelicula("Spider","Accion","/imagenes/Spider.jpg","2h 40min"));
-         peliculas.add(new Pelicula("Agua","Refrescante","/imagenes/Agua.jpeg","2h 40min"));
-         peliculas.add(new Pelicula("Spider","Accion","/imagenes/Spider.jpg","2h 40min"));
-         peliculas.add(new Pelicula("Agua","Refrescante","/imagenes/Agua.jpeg","2h 40min"));
-         peliculas.add(new Pelicula("Spider","Accion","/imagenes/Spider.jpg","2h 40min"));
-         peliculas.add(new Pelicula("Agua","Refrescante","/imagenes/Agua.jpeg","2h 40min"));
-         peliculas.add(new Pelicula("Spider","Accion","/imagenes/Spider.jpg","2h 40min"));
+         peliculas.add(new Pelicula("MOANA","Moana que quiere ser una viajera marinera."
+                 + " Cuando su isla natal se ve amenazada, Moana debe adentrarse en el mar"
+                 + " junto a un semidiós llamado Maui para salvar a su pueblo.","/imagenes/moana.jpg","2h 10min"));
+         peliculas.add(new Pelicula("EVIL DEAD EN LLAMAS","Tras de la pérdida de su esposo, "
+                 + "una mujer busca consuelo con sus suegros. "
+                 + "A medida que uno a uno se transforman en deaítas, "
+                 + "ella llega a descubrir que los votos que tomó en la vida "
+                 + "- perviven incluso en la muerte.","/imagenes/evildead.jpg","2h 05min"));
+         peliculas.add(new Pelicula("LA ODISEA","Después de la Guerra de Troya, "
+                 + "Odiseo se enfrenta a un peligroso viaje de regreso a Ítaca, "
+                 + "encontrándose con criaturas como el cíclope Polifemo, las Sirenas y "
+                 + "Calipso en el camino.","/imagenes/odisea.jpg","3h 10min"));
+         peliculas.add(new Pelicula("TOY STORY 5","Los juguetes están de vuelta. Esta vez, "
+                 + "Buzz Lightyear, Woody, Jessie y el resto de la pandilla se enfrentan a un nuevo reto "
+                 + "cuando conocen a Lilypad, una nueva tablet que llega con sus propias ideas "
+                 + "disruptivas sobre lo que es mejor para Bonnie. ¿Volverá a ser lo mismo "
+                 + "la hora de jugar?","/imagenes/toystory.jpg","2h 00min"));
+         peliculas.add(new Pelicula("SUPERGIRL","Tomando como referencia la reciente miniserie escrita por Tom King, "
+                 + "esta película promete una visión diferente de lo que la mayoría piensa cuando le viene a la mente "
+                 + "la prima de Superman. \"Veremos la diferencia entre Superman, que fue enviado a la Tierra y criado "
+                 + "por unos padres cariñosos desde que era un bebé, y Supergirl, criada en una roca, una astilla de Krypton, "
+                 + "y que vio morir y ser asesinados de formas terribles a todos los que la rodeaban durante los primeros 14 años "
+                 + "de su vida para luego venir a la Tierra. Ella es mucho más dura y no es la Supergirl a la que estamos "
+                 + "acostumbrados\".","/imagenes/supergirl.jpg","2h 05min"));
+         peliculas.add(new Pelicula("BACKROOMS","Una extraña puerta aparece en el sótano de una exposición de muebles. "
+                 + "Cuando el paciente de una terapeuta desaparece en una dimensión más allá de la realidad, ella deberá adentrarse "
+                 + "en lo desconocido para intentar salvarlo... Adaptación de un cortometraje del propio "
+                 + "Kane Parsons.","/imagenes/backrooms.jpg","2h 05min"));
+         peliculas.add(new Pelicula("EL DIA DE LA REVELACION","Si descubrieras que no estamos solos, si alguien te abriera los ojos "
+                 + "y te lo demostrase, ¿te asustarías? Este verano, la verdad será revelada a siete mil millones de personas. "
+                 + "Llega... el día de la revelación.","/imagenes/revelacion.jpg","2h 40min"));
+         
+         peliculas.add(new Pelicula("AMOS DEL UNIVERSO","He-Man, el hombre más poderoso del universo, va contra el malvado Skeletor "
+                 + "para salvar el planeta Eternia y proteger los secretos del Castillo Grayskull.","/imagenes/amos.jpg","2h 30min"));
          
          
          Collections.shuffle(peliculas);
