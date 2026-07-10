@@ -34,7 +34,7 @@ public class Factura extends javax.swing.JFrame {
     }
     
     
-     lblTotlaFunciones.setText("Funciones Activas: "+cine.totalFunciones()+"");
+     lblTotlaFunciones.setText("Funciones Activas:  "+cine.totalFunciones()+" ");
     
     
     }
@@ -70,7 +70,7 @@ public class Factura extends javax.swing.JFrame {
         txtResumen.setVerifyInputWhenFocusTarget(false);
         jScrollPane1.setViewportView(txtResumen);
 
-        lblTotlaFunciones.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        lblTotlaFunciones.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblTotlaFunciones.setOpaque(true);
 
         btnLimpiarSalas.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N

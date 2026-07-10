@@ -133,7 +133,7 @@ public class SeleccionAsientos extends javax.swing.JFrame {
                     if(funcion.getAsientos()[i][j]){
 
                         botones[i][j].setEnabled(false);
-                        botones[i][j].setBackground(Color.RED);
+                        botones[i][j].setBackground(new Color(128, 0, 32));
                     }
                  }
              }
@@ -248,7 +248,8 @@ public class SeleccionAsientos extends javax.swing.JFrame {
         lblRestantes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         lblImagen.setBackground(new java.awt.Color(255, 255, 255));
-        lblImagen.setBorder(new javax.swing.border.MatteBorder(null));
+        lblImagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblImagen.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 0, 0)));
         lblImagen.setOpaque(true);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
