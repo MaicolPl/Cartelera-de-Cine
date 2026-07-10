@@ -133,7 +133,7 @@ public class SeleccionAsientos extends javax.swing.JFrame {
                     if(funcion.getAsientos()[i][j]){
 
                         botones[i][j].setEnabled(false);
-                        botones[i][j].setBackground(new Color(102, 0, 26));
+                        botones[i][j].setBackground(Color.RED);
                     }
                  }
              }

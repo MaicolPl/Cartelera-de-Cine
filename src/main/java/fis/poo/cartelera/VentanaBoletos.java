@@ -29,6 +29,7 @@ public class VentanaBoletos extends javax.swing.JFrame {
         btnBack.setFocusPainted(false);
         btnContinuar.setContentAreaFilled(false);
         btnContinuar.setFocusPainted(false);
+        
         spGeneral.setModel(new SpinnerNumberModel(0, 0, 10, 1));
         spNino.setModel(new SpinnerNumberModel(0, 0, 10, 1));
         spMayor.setModel(new SpinnerNumberModel(0, 0, 10, 1) );
@@ -362,7 +363,6 @@ public class VentanaBoletos extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -411,7 +411,9 @@ public class VentanaBoletos extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
       
-        cine.eliminarFuncion(funcion);
+        if (funcion.getAsientosFormateados().isEmpty()) {
+            cine.eliminarFuncion(funcion);
+        }
         new VentanaPelicula(funcion.getPelicula(),cine).setVisible(true);
         this.dispose();
         

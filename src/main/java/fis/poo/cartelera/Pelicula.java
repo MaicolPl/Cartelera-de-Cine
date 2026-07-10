@@ -40,6 +40,22 @@ public class Pelicula {
     public String getDuracion() {
         return duracion;
     }
-    
-    
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Pelicula)) {
+            return false;
+        }
+        Pelicula otra = (Pelicula) obj;
+        return nombre != null && nombre.equals(otra.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return nombre != null ? nombre.hashCode() : 0;
+    }
+
 }

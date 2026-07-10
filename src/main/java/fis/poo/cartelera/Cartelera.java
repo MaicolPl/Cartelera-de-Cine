@@ -15,6 +15,8 @@ public class Cartelera {
         GuiCartelera cartelera = new GuiCartelera();
         cartelera.setVisible(true);
         
+        System.out.println("Prubea Subida 9/7/2026");
+        
         
      
     }
