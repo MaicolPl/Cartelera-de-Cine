@@ -16,13 +16,17 @@ public class Pelicula {
     private String nombre;
     private String descripcion;
     private ImageIcon portada;
+    private ImageIcon fondo;
     private String duracion;
+    private String enlace;
 
-   public Pelicula(String nombre, String descripcion, String rutaImagen, String duracion) {
+   public Pelicula(String nombre, String descripcion, String rutaImagen, String duracion,String rutaImagenFondo,String enlace) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.duracion = duracion;
+        this.enlace= enlace;
         this.portada = new ImageIcon(getClass().getResource(rutaImagen));
+        this.fondo = new ImageIcon(getClass().getResource(rutaImagenFondo));
     }
 
     public String getNombre() {
@@ -36,10 +40,15 @@ public class Pelicula {
     public ImageIcon getPortada() {
         return portada;
     }
-
+    public ImageIcon getFondo() {
+        return fondo;
+    }
     public String getDuracion() {
         return duracion;
     }
+    public String getEnlace() {
+        return enlace;
+    }    
 
     @Override
     public boolean equals(Object obj) {

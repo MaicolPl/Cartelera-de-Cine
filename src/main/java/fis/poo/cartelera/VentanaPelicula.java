@@ -4,7 +4,9 @@
  */
 package fis.poo.cartelera;
 
+import java.awt.Desktop;
 import java.awt.Image;
+import java.net.URI;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
@@ -28,6 +30,11 @@ public class VentanaPelicula extends javax.swing.JFrame {
         initComponents();
         this.p=p;
         this.cine=cine;
+        jPanel1.setComponentZOrder(lblBanner, jPanel1.getComponentCount() - 1);  
+        
+        lblTrailer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblTrailer.setText("<html><u> \u25B6 Ver tráiler </u></html>");
+   
         
         System.out.println("Ubicacion: " + cine.getUbicacion());
         
@@ -40,10 +47,15 @@ public class VentanaPelicula extends javax.swing.JFrame {
         lblTitulo.setText(p.getNombre());
         lblImagen.setIcon(p.getPortada());
         lblDuracion.setText(p.getDuracion());
+        lblBanner.setIcon(p.getFondo());
         
         lblDescripcion.setText("<html><body style='width:300px'>"+ p.getDescripcion()+ "</body></html>");
         
         colocarImagen(lblImagen, p.getPortada());
+        colocarImagen(lblBanner, p.getFondo());
+        
+        ImageIcon icono = new ImageIcon(getClass().getResource("/imagenes/Logo.jpg"));
+        colocarImagen(lblLogo, icono);
         
         String[] dias = {
              " Lunes ","Martes ","Miercoles ", " Jueves ","Viernes ","Sabado ","Domingo "
@@ -102,6 +114,8 @@ public class VentanaPelicula extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
         lblSinopsis = new javax.swing.JLabel();
         lblDuracion = new javax.swing.JLabel();
+        lblBanner = new javax.swing.JLabel();
+        lblTrailer = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         lstDias = new javax.swing.JList<>();
@@ -113,6 +127,7 @@ public class VentanaPelicula extends javax.swing.JFrame {
         lblDescripcion = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Ventana de la Pelicula");
         setSize(new java.awt.Dimension(1064, 691));
 
         lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo.png"))); // NOI18N
@@ -137,6 +152,8 @@ public class VentanaPelicula extends javax.swing.JFrame {
 
         jScrollPane1.setOpaque(false);
 
+        jPanel1.setPreferredSize(new java.awt.Dimension(3451, 713));
+
         lblTitulo.setBackground(new java.awt.Color(255, 255, 255));
         lblTitulo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
@@ -154,6 +171,17 @@ public class VentanaPelicula extends javax.swing.JFrame {
         lblSinopsis.setText("Sinopsis ");
 
         lblDuracion.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        lblBanner.setBackground(new java.awt.Color(255, 255, 255));
+        lblBanner.setBorder(new javax.swing.border.MatteBorder(null));
+        lblBanner.setOpaque(true);
+
+        lblTrailer.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        lblTrailer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblTrailerMouseClicked(evt);
+            }
+        });
 
         lstDias.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lstDias.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
@@ -181,7 +209,7 @@ public class VentanaPelicula extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
+                .addGap(1, 1, 1)
                 .addComponent(jScrollPane2)
                 .addGap(10, 10, 10))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -220,44 +248,58 @@ public class VentanaPelicula extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(btnBack))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblSinopsis, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(42, 42, 42)
+                                .addComponent(lblBanner, javax.swing.GroupLayout.PREFERRED_SIZE, 773, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(lblTrailer, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnBack)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(20, 20, 20)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(2343, 2343, Short.MAX_VALUE))
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblSinopsis, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 544, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(2408, 2408, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(btnBack)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(btnBack)
                         .addGap(31, 31, 31)
                         .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(lblBanner, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(13, 13, 13)))
-                .addComponent(lblSinopsis, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
+                        .addGap(204, 204, 204))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(lblTrailer, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24)
+                        .addComponent(lblSinopsis, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -310,6 +352,18 @@ public class VentanaPelicula extends javax.swing.JFrame {
          abrirBoletos("15:00"); 
     }//GEN-LAST:event_btn15ActionPerformed
 
+    private void lblTrailerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblTrailerMouseClicked
+        
+         try {
+        Desktop.getDesktop().browse(new URI(p.getEnlace()));
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+        
+        
+        
+    }//GEN-LAST:event_lblTrailerMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -347,12 +401,14 @@ public class VentanaPelicula extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblBanner;
     private javax.swing.JLabel lblDescripcion;
     private javax.swing.JLabel lblDuracion;
     private javax.swing.JLabel lblImagen;
     private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblSinopsis;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JLabel lblTrailer;
     private javax.swing.JList<String> lstDias;
     // End of variables declaration//GEN-END:variables
 }

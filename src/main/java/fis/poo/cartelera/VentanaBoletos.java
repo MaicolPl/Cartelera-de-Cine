@@ -111,6 +111,7 @@ public class VentanaBoletos extends javax.swing.JFrame {
         txtP2 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Ventana de Boletos");
         setPreferredSize(new java.awt.Dimension(1071, 714));
 
         lblTitulo.setBackground(new java.awt.Color(255, 255, 255));

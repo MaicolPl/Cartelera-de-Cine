@@ -60,6 +60,7 @@ public class Factura extends javax.swing.JFrame {
         btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Factura");
 
         jScrollPane1.setHorizontalScrollBar(null);
 
